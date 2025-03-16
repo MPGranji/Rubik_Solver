@@ -86,4 +86,4 @@ The solver uses standard Rubik's Cube notation with the following color assignme
 - Full source code and updates are available at: [https://github.com/MPGranji/Rubik_Solver](https://github.com/MPGranji/Rubik_Solver).
 
 ## Appendices
-For a detailed demo guide, formulas, and configurations, refer to the appendices in the project documentati
+For a detailed demo guide, formulas, and configurations, refer to the appendices in the project documentation.
