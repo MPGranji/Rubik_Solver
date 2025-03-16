@@ -1,3 +1,0 @@
-# Rubik_Solver
-
-Hi
