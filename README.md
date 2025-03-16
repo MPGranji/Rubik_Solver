@@ -15,23 +15,9 @@ To run this project, you need to install the following dependencies:
 git clone https://github.com/MPGranji/Rubik_Solver.git
 cd Rubik_Solver
 
-text
-
-Thu gọn
-
-Bọc lại
-
-Sao chép
 2. Install the required libraries:
 pip install opencv-python kociemba
 
-text
-
-Thu gọn
-
-Bọc lại
-
-Sao chép
 3. Ensure a webcam is connected to your computer.
 
 ### Usage
@@ -39,13 +25,6 @@ Sao chép
 Run the main script:
 python main.py
 
-text
-
-Thu gọn
-
-Bọc lại
-
-Sao chép
 This opens the Frame window for scanning.
 
 2. **Scan the Cube**:
