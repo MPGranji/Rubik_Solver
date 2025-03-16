@@ -1,17 +1,30 @@
-# Rubik_Solver
+<p align="center">
+    <h1 align="center">Rubik_Solver 🧩</h1>
+</p>
 
-A Python-based Rubik's Cube solver using OpenCV for color detection and Kociemba's algorithm for generating solutions. This project provides a demo to scan a Rubik's Cube via webcam, detect its colors, and display a step-by-step solution.
+<p align="center">
+    <img src="https://via.placeholder.com/300" alt="Rubik's Cube" border="0" width="300px">
+</p>
+<!-- Replace with your own image URL if available -->
 
-## Getting Started
+> Rubik_Solver - A Python-based Rubik's Cube solver using OpenCV for color detection and Kociemba's algorithm to generate solutions. Scan your cube via webcam and get a step-by-step solution!
 
-### Prerequisites
+## Technology Used ✨
 
-To run this project, you need to install the following dependencies:
+- [Python](https://www.python.org/)
+- [OpenCV](https://opencv.org/)
+- [Kociemba](https://github.com/muodoka/kociemba)
 
-- **Python 3.x**
-- **OpenCV**: For image processing and webcam integration (`pip install opencv-python`)
-- **Kociemba**: For solving the Rubik's Cube (`pip install kociemba`)
+## Setup and Run
 
+<details>
+    <summary>Click to expand</summary>
+    <br>
+    <h3>Clone the Repository</h3>
+
+```bash
+git clone https://github.com/MPGranji/Rubik_Solver.git
+cd Rubik_Solver
 <h3>Prerequisites</h3> Before running the project, ensure you have the following installed: - <strong>Python 3.x</strong>: Download from <a href="https://www.python.org/downloads/">here</a>. - A webcam connected to your computer. <h3>Install Dependencies</h3>
 Install the required libraries:
 bash
