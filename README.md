@@ -63,6 +63,3 @@ The solver uses standard Rubik's Cube notation with the following color assignme
 - **Color Detection**: Uses HSV ranges defined in the code (e.g., Red: H: 0-10, S: 100-255, V: 100-255).
 - **Algorithm**: Implements Kociemba’s two-phase algorithm for solutions under 20 moves.
 - Full source code and updates are available at: [https://github.com/MPGranji/Rubik_Solver](https://github.com/MPGranji/Rubik_Solver).
-
-## Appendices
-For a detailed demo guide, formulas, and configurations, refer to the appendices in the project documentation.
