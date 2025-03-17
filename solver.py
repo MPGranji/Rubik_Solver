@@ -2,7 +2,7 @@ import kociemba as Cube
 import cv2
 import numpy as np
 from cube_state import CubeState
-from ui import draw_preview_stickers, fill_stickers  # Để vẽ giao diện Rubik
+from ui import draw_preview_stickers, fill_stickers
 
 sign_conv = {
     'green': 'F',
