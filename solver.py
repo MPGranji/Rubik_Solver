@@ -13,16 +13,14 @@ sign_conv = {
     'yellow': 'D'
 }
 
-
 def solve(state, stickers):
-    """Giải cube và trả về công thức để xử lý từng bước."""
     raw = ''.join(sign_conv[j] for i in state for j in state[i])
     try:
         solution = Cube.solve(raw)
-        print("Công thức giải:", solution)
-        return solution.split(' ')  # Trả về danh sách các bước
+        print("Way to solve:", solution)
+        return solution.split(' ')
     except Exception as e:
-        print(f"Lỗi khi giải: {e}")
+        print(f"Error when: {e}")
         return None
 
 
@@ -49,18 +47,18 @@ def process_step(step, cube):
         "B'": [cube.revrotate, 'back']
     }
     moves = replace[step]
-    func = moves[0]  # rotate hoặc revrotate
-    for side in moves[1:]:  # Thực hiện xoay
+    func = moves[0]
+    for side in moves[1:]:
         func(side)
 
 
 def display_solution_window(cube, stickers, steps, step_index):
-    """Hiển thị cửa sổ solution với Rubik, bước hiện tại và toàn bộ công thức."""
-    solution_window = np.zeros((700, 800, 3), np.uint8)  # Tạo khung đen
-    draw_preview_stickers(solution_window, stickers)  # Vẽ giao diện Rubik giống preview
-    fill_stickers(solution_window, stickers, cube.state)  # Điền màu cho Rubik
 
-    # Hiển thị bước hiện tại ở góc trên phải
+    solution_window = np.zeros((700, 800, 3), np.uint8)
+    draw_preview_stickers(solution_window, stickers)
+    fill_stickers(solution_window, stickers, cube.state)
+
+    # Current step in the right corner
     font = cv2.FONT_HERSHEY_SIMPLEX
     if step_index < len(steps):
         current_step = steps[step_index]
@@ -68,8 +66,8 @@ def display_solution_window(cube, stickers, steps, step_index):
     else:
         cv2.putText(solution_window, "Done", (600, 30), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
-    # Hiển thị toàn bộ công thức ở dưới 6 mặt Rubik
-    full_solution = " ".join(steps)  # Ghép các bước thành chuỗi
+    # Full step
+    full_solution = " ".join(steps)
     cv2.putText(solution_window, f"Solution: {full_solution}", (50, 600), font, 0.7, (0, 255, 255), 1, cv2.LINE_AA)
 
     cv2.imshow('solution', solution_window)
