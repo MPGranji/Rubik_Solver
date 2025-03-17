@@ -1,12 +1,11 @@
 import cv2
 import numpy as np
-import time
 import colorama
 from cube_state import CubeState
 from color_detection import color_detect
 from ui import draw_stickers, draw_preview_stickers, fill_stickers, texton_preview_stickers, mouse_callback_preview, draw_face_buttons, mouse_callback_frame
 from solver import solve, process_step, display_solution_window
-from utils import GREEN, RED, MAGENTA, RESET, print_intro
+from utils import print_intro
 from config import stickers
 
 colorama.init()
@@ -20,9 +19,9 @@ if __name__ == "__main__":
 
     cube = CubeState()
     current_state = []
-    solution_steps = None  # Lưu danh sách các bước giải
-    step_index = 0  # Chỉ số bước hiện tại
-    solution_active = False  # Kiểm tra xem cửa sổ solution đang mở không
+    solution_steps = None
+    step_index = 0
+    solution_active = False
 
     while True:
         hsv = []
@@ -34,7 +33,7 @@ if __name__ == "__main__":
         frame = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         mask = np.zeros(frame.shape, dtype=np.uint8)
 
-        # Vẽ giao diện
+        # Draw UI
         draw_stickers(img, stickers, 'main')
         draw_stickers(img, stickers, 'current')
         draw_preview_stickers(preview, stickers)
@@ -42,8 +41,8 @@ if __name__ == "__main__":
         texton_preview_stickers(preview, stickers)
         draw_face_buttons(img)
 
-        # Xử lý màu từ camera
-        current_state = []  # Reset current_state mỗi khung hình
+        # Scan color
+        current_state = []  # Reset current_state
         for i in range(9):
             hsv.append(frame[stickers['main'][i][1] + 20][stickers['main'][i][0] + 20])
 
@@ -55,7 +54,7 @@ if __name__ == "__main__":
             current_state.append(color_name)
 
         k = cv2.waitKey(5) & 0xFF
-        if k == 27:  # Nhấn ESC để thoát toàn bộ chương trình
+        if k == 27:
             break
         elif k == ord('u'):
             cube.state['up'] = current_state
@@ -69,18 +68,18 @@ if __name__ == "__main__":
             cube.state['front'] = current_state
         elif k == ord('b'):
             cube.state['back'] = current_state
-        elif k == ord('\r'):  # Nhấn Enter
-            if not solution_active:  # Lần đầu nhấn Enter: Giải và mở solution window
+        elif k == ord('\r'):
+            if not solution_active:
                 solution_steps = solve(cube.state, stickers)
                 if solution_steps:
                     step_index = 0
                     solution_active = True
                     display_solution_window(cube, stickers, solution_steps, step_index)
-            elif solution_active and step_index < len(solution_steps):  # Các lần Enter tiếp theo: Xoay từng bước
+            elif solution_active and step_index < len(solution_steps):  # Hiện từng bước khi enter
                 process_step(solution_steps[step_index], cube)
                 step_index += 1
                 display_solution_window(cube, stickers, solution_steps, step_index)
-            elif solution_active and step_index >= len(solution_steps):  # Khi hoàn thành: Đóng solution window
+            elif solution_active and step_index >= len(solution_steps):
                 cv2.destroyWindow('solution')
                 solution_active = False
                 solution_steps = None
