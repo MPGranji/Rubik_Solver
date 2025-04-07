@@ -2,17 +2,12 @@ class CubeState:
     def __init__(self):
         self.state = {
             'up': ['white'] * 9,
-            'right': ['white'] * 9,
-            'front': ['white'] * 9,
-            'down': ['white'] * 9,
-            'left': ['white'] * 9,
-            'back': ['white'] * 9
+            'right': ['red'] * 9,
+            'front': ['green'] * 9,
+            'down': ['yellow'] * 9,
+            'left': ['orange'] * 9,
+            'back': ['blue'] * 9
         }
-        self.state['right'][4] = 'red'
-        self.state['front'][4] = 'green'
-        self.state['down'][4] = 'yellow'
-        self.state['left'][4] = 'orange'
-        self.state['back'][4] = 'blue'
         self.color = {
             'red': (0, 0, 255),
             'orange': (0, 165, 255),
