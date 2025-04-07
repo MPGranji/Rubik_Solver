@@ -25,7 +25,6 @@ def solve(state, stickers):
 
 
 def process_step(step, cube):
-    """Thực hiện một bước xoay trên cube."""
     replace = {
         "F": [cube.rotate, 'front'],
         "F2": [cube.rotate, 'front', 'front'],
