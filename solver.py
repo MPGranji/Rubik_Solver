@@ -61,9 +61,9 @@ def display_solution_window(cube, stickers, steps, step_index):
     font = cv2.FONT_HERSHEY_SIMPLEX
     if step_index < len(steps):
         current_step = steps[step_index]
-        cv2.putText(solution_window, f"Step: {current_step}", (600, 30), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(solution_window, f"Step: {current_step}", (580, 180), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
     else:
-        cv2.putText(solution_window, "Done", (600, 30), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.putText(solution_window, "Done", (580, 180), font, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
     # Full step
     full_solution = " ".join(steps)
