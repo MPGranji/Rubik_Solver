@@ -27,7 +27,7 @@ if __name__ == "__main__":
         hsv = []
         ret, img = cap.read()
         if not ret:
-            print("Không thể đọc từ camera!")
+            print("Can't read from camera!")
             break
 
         frame = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
